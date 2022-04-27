@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/nouislider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header-title">Шапка сайта</h1>
+        </div>
+    </header>
+
+    <div class="main-content container">
+    <div class="search-panel">
+        <form class="search-wrapper" method="GET">
+            <div class="search-row">
+                <span class="search-icon"></span>
+                <input class="search-input" name="search" type="text"  placeholder="seacrh">
+            </div>
+            <div class="serch-btn-wrapper">
+                <button class="search-button">Найти</button>
+                <button class="search-close-btn">Закрыть</button>
+            </div>
+        </from>
+    </div>
+
+    <div class="status-panel">
+{% block content %}
+
+{% endblock %}
+
+</div>
+<script src="{% static 'js/nouislider.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

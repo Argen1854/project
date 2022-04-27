@@ -1,0 +1,176 @@
+{% extends "main.html" %}
+{% load static %}
+{% block title %}
+Главаная страница
+{% endblock %}
+
+
+{% block content %}
+    
+        <div class="category-panel">
+
+            {% for i in categoryproduct %}
+            <div class="category-card">
+                <picture>
+                    <source srcset="img/Rectangle-2.webp" type="image/webp">
+                    <img class="category-image" src="img/Rectangle-2.png" alt="Category name">
+                </picture>
+                <div class="category-text">
+                    <h3 class="category-title">{{ i.title }}</h3>
+                    <!-- <span class="category-desc">134 товара</span> -->
+                </div>
+            </div>
+            {% endfor %}
+            <div class="category-hide-box"></div>
+        </div>
+        
+        <div class="catalog">
+            
+            <aside class="catalog-filter">
+
+                <div class="category">
+                    <h4 class="category-heading">Все категории</h4>
+                    <ul class="category-list crop-height">
+                        <li class="category-item">
+                            <a class="category-link" href="#">
+                                Категория в которрой нашли что-то
+                            </a>
+                            <span class="category-items-qantity">(xxx)</span>
+                        </li>
+                    </ul>
+                    <span class="category-show-next">Ещё 10 категорий...</span>
+                </div>
+
+                <div class="price">
+                    <h4 class="price-heading">Цена, валюта</h4>
+                    <p class="price-range-inputs">
+                        <label>от </label><input type="number" class="price-min price-input" min="0" max="1000000" aria-label="price-min" placeholder="1000">
+                        <label>до </label><input type="number" class="price-max price-input" min="0" max="1000000" aria-label="price-max" placeholder="1000000">
+                        &#8381;
+                    </p>
+                    <span id="price-range-slider"></span>
+                </div>
+
+                <div class="brends">
+                    <div class="brends-heading-wrapper">
+                        <h4 class="brends-heading">Бренды</h4>
+                        <span class="brands-checkbox-clean">Очистить</span>
+                    </div>
+                    <ul class="brands-list">
+                        <li class="brands-item">
+                            <label class="brands-name"><input type="checkbox" class="brands-checkbox">Бренд</label>
+                            <span class="brands-item-qantity">(xxx)</span>
+                        </li>
+                        <li class="brands-item">
+                            <label class="brands-name"><input type="checkbox" class="brands-checkbox">Бренд</label>
+                            <span class="brands-item-qantity">(x)</span>
+                        </li>
+                        <li class="brands-item">
+                            <label class="brands-name"><input type="checkbox" class="brands-checkbox">Бренд</label>
+                            <span class="brands-item-qantity">(x xxx)</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </aside>
+
+            <main class="goods">
+
+                <div class="goods-filter">
+
+                    <div class="goods-sorting">
+    
+                        <div class="sortong-options">
+    
+                            <h4 class="sorting-heading">Сортировать по: </h4>
+
+                            <div class="sorting-options-wrapper">
+
+                                <a href="#" class="sorting-option">популярности</a>
+                                <a href="#" class="sorting-option">сначала дешевые</a>
+                                <a href="#" class="sorting-option">сначала дорогие</a>
+
+                            </div>
+    
+                        </div>
+    
+                        <div class="sorting-items-quantity">
+    
+                            <label class="quantity-text">показывать по 
+                                <select class="quantity" name="quantity" id="quantity">
+                                    <option value="24">24</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </label>
+    
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="sorting-buttons">
+    
+                        <button class="sorting-btn">Уточнение</button>
+                        <button class="sorting-btn">Уточнение</button>
+                        <button class="sorting-btn">Уточнение</button>
+                        <button class="sorting-btn">Уточнение</button>
+    
+                    </div>
+
+                </div>
+
+                <div class="goods-cards">
+
+                    {% for i in object_list %}
+                    <div class="goods-card">
+                        <div class="card-header">
+                            <picture>
+                                <!-- <source srcset="img/Rectangle-4.webp" type="image/webp"> -->
+                                <img class="card-image" src="{{ i.image }}" alt="Category name">
+                            </picture>
+                            <h3 class="card-title">{{ i.title }}</h3>
+                        </div>
+
+                        <div class="card-body">
+                            <span class="card-price">{{ i.price }} сом </span>
+                            <!-- <s class="card-old-price">XX XXX &#x24;</s> -->
+                        </div>
+
+                        <div class="card-footer">
+                            <a class="card-button" href="detail/{{i.id}}/">Подробнее</a>
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+    
+                </div>
+    
+                <div class="pagination-wrapper">
+                    <ul class="pagination">
+                        <li class="pagination-item">
+                            <a href="#" class="prev" title="previous page">&#10094;</a>
+                        </li>
+                        <li class="pagination-item">
+                            <a href="#">2</a>
+                        </li>
+                        <li class="pagination-item">
+                            <a href="#">3</a>
+                        </li>
+                        <li class="pagination-item">
+                            <span>...</span>
+                        </li>
+                        <li class="pagination-item">
+                            <a href="#">13</a>
+                        </li>
+                        <li class="pagination-item">
+                            <a href="#" class="next" title="next page">&#10095;</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </main>
+
+        </div>
+        
+    {% endblock %}
+    

@@ -1,0 +1,86 @@
+{% extends 'book/main.html' %}
+
+{% block title %}
+{{ object.title }}
+{% endblock %}
+
+{% block content %}
+<style>
+    .content{
+        min-height: 500px;
+    }
+    .content img{
+        height: 500px;
+        float: right;
+    }
+    .content__d{
+        margin-left: 20px;
+    }
+    body{
+        min-height: 100vh;
+    }
+    .update_btn{
+        width: 100px;
+        background-color: orange;
+        transition: all 0.5s;
+        border: 3px solid transparent;
+    }
+    .update_btn:hover{
+        border: 3px solid white;
+        background-color: white;
+    }
+    .update_btn a{
+        transition: all 0.5s;
+        text-decoration: none;
+        color: #fff;
+    }
+    .update_btn:hover a{
+        color: orange;
+    }
+    .comments{
+        display: block;
+        width: 45%;
+    }
+    .expert{
+        width: 45%;
+    }
+    .review{
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+    <div class="content">
+        <img class="content_img" src="{{ object.image.url }}" alt="">
+        <div class="content__d">
+            <h2>{{ object.title }}</h2>
+            <p>{{ object.description }}</p>
+        </div>
+
+        <div class="s">
+        <div class="btn">
+            <button type="button" class="update_btn"><a href="/book/{{ object.id }}/update/">Обновить</a></button>
+            <button type="button" class="update_btn"><a href="/book/{{ object.id }}/delete/">Удалить</a></button>
+        </div>
+    </div>
+    
+    </div>
+    <div class="review">
+    <div class="comments">
+        <h2>Comments</h2>
+        <ul>
+            {% for i in object.book_commet.all %}
+                <p>{{ i.date }}</p>
+                <p>{{ i.text }}</p>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="expert">
+        <h2>Expert</h2>
+            {% for i in object.expert_rec.all %}
+                <p>Эксперт: {{ i.expert.name }}</p>
+                <p>Деятельность: {{ i.expert.activity }}</p>
+                <p>Отзыв: {{ i.review }}</p>
+            {% endfor %}
+    </div>
+</div>
+{% endblock %}

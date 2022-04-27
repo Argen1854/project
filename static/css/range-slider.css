@@ -1,0 +1,28 @@
+.noUi-connects {
+    height: 4px;
+    background: rgb(0, 0, 0);
+}
+
+.noUi-connect {
+    background: #000;
+}
+
+.noUi-target {
+    border: none;
+    height: 4px;
+    box-shadow: none;
+}
+.noUi-horizontal
+.noUi-handle {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    right: -17px;
+    top: -5px;
+}
+
+.noUi-handle:before, 
+.noUi-handle:after {
+    display: none;
+}

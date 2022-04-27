@@ -1,0 +1,65 @@
+{% extends "main.html" %}
+{% load static %}
+{% block title %}
+{{ object.title }}
+{% endblock %}
+
+
+{% block content %}
+<style>
+    .content{
+        min-height: 500px;
+    }
+    .content img{
+        height: 500px;
+        float: right;
+    }
+    .content__d{
+        margin-left: 20px;
+    }
+    body{
+        min-height: 100vh;
+    }
+    .update_btn{
+        width: 100px;
+        background-color: orange;
+        transition: all 0.5s;
+        border: 3px solid transparent;
+    }
+    .update_btn:hover{
+        border: 3px solid white;
+        background-color: white;
+    }
+    .update_btn a{
+        transition: all 0.5s;
+        text-decoration: none;
+        color: #fff;
+    }
+    .update_btn:hover a{
+        color: orange;
+    }
+    .comments{
+        display: block;
+        width: 45%;
+    }
+    .expert{
+        width: 45%;
+    }
+    .review{
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+    <div class="content">
+        <img class="content_img" src="{{ object.image }}" alt="">
+        <div class="content__d">
+            <h2>{{ object.title }}</h2>
+            <p>{{ object.text }}</p>
+            <p>{{ object.price }}</p>
+        </div>
+        </div>
+    </div>
+    
+    </div>
+{% endblock %}
+    
